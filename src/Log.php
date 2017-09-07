@@ -144,7 +144,7 @@ class Log
             return $location.'/'.$name.'.log';
         } else {
             // @todo safer fallback directory
-            return __DIR__.'/logs/'.$name.'.log';
+            return __DIR__.'/../logs/'.$name.'.log';
         }
     }
 }
