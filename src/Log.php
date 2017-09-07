@@ -134,7 +134,7 @@ class Log
     {
         $location = getenv('LOG_LOCATION');
 
-        if ($location == 'laravel') {
+        if ($location == 'laravel' && function_exists('storage_path')) {
             /**
              * we are assuming that if you've set the log location to laravel
              * then we have access to the laravel function.
