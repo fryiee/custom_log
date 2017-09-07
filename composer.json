@@ -1,0 +1,29 @@
+{
+  "name": "fryiee/custom_log",
+  "description": "A Custom Log class built on Monolog's Logger.",
+  "version": "0.1.0",
+  "keywords": [
+    "laravel",
+    "logger",
+    "monolog"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Craig Berry",
+      "email": "hi@craigberry.co"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Fryiee\\CustomLog\\": "src/"
+    }
+  },
+  "require": {
+    "monolog/monolog": "~1.11",
+    "vlucas/phpdotenv": "~2.2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.4|~5.0"
+  }
+}
