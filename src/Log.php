@@ -5,8 +5,8 @@ use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
 /**
- * Class CustomLogger
- * @package Rt\ProfilesModule\Support\Log
+ * Class Log
+ * @package Fryiee\CustomLog
  */
 class Log
 {
