@@ -1,7 +1,7 @@
 {
   "name": "fryiee/custom_log",
   "description": "A Custom Log class built on Monolog's Logger.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "keywords": [
     "laravel",
     "logger",
