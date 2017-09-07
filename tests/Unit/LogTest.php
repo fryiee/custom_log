@@ -18,6 +18,9 @@ class LogTest extends \PHPUnit_Framework_TestCase
         if (file_exists(__DIR__.'/../logs')) {
             rmdir(__DIR__ . '/../logs');
         }
+
+        putenv('LOG_PATH=./tests/logs');
+        putenv('LOG_DATE=');
     }
 
     /** @test */
@@ -48,6 +51,38 @@ class LogTest extends \PHPUnit_Framework_TestCase
     {
         $name = 'nested/test';
         $logPath = __DIR__.'/../logs/'.$name.'.log';
+        \Fryiee\CustomLog\Log::info($name, 'Testing a log.');
+
+        $this->assertFileExists($logPath);
+        $this->assertNotFalse(strpos(file_get_contents($logPath), $name.'.INFO: Testing a log.'));
+
+        // test will fail before this if does not exist
+        unlink($logPath);
+    }
+
+    /** @test */
+    public function checkThatItLogsToWhateverPathIsSet()
+    {
+        putenv('LOG_PATH=./');
+
+        $name = 'test';
+        $logPath = './'.$name.'.log';
+        \Fryiee\CustomLog\Log::info($name, 'Testing a log.');
+
+        $this->assertFileExists($logPath);
+        $this->assertNotFalse(strpos(file_get_contents($logPath), $name.'.INFO: Testing a log.'));
+
+        // test will fail before this if does not exist
+        unlink($logPath);
+    }
+
+    /** @test */
+    public function checkThatItAppendsTheDateIfEnvIsToggled()
+    {
+        putenv('LOG_DATE=true');
+
+        $name = 'test';
+        $logPath = __DIR__.'/../logs/'.$name.'_'.date('Y-m-d').'.log';
         \Fryiee\CustomLog\Log::info($name, 'Testing a log.');
 
         $this->assertFileExists($logPath);

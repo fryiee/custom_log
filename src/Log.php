@@ -132,7 +132,11 @@ class Log
      */
     private static function getPath($name)
     {
-        $location = getenv('LOG_LOCATION');
+        $location = getenv('LOG_PATH');
+
+        if (boolval(getenv('LOG_DATE')) !== false) {
+            $name .= '_'.date('Y-m-d');
+        }
 
         if ($location == 'laravel' && function_exists('storage_path')) {
             /**

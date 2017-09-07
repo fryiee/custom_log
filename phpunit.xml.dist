@@ -15,6 +15,6 @@
 
     <php>
         <ini name="date.timezone" value="UTC"/>
-        <env name="LOG_LOCATION" value="./tests/logs"/>
+        <env name="LOG_PATH" value="./tests/logs"/>
     </php>
 </phpunit>

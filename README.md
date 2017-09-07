@@ -4,14 +4,17 @@ A custom Log class based on Monolog's Logger.
 ## Installation
 `composer require fryiee/custom_log`
 
-Add `LOG_LOCATION` to your .env.
+Add `LOG_PATH` to your .env.
 
 The package assumes the following:
 
-- `LOG_LOCATION=laravel` will assume the same storage location as the `Log` facade
+- `LOG_PATH=laravel` will assume the same storage location as the `Log` facade
 using `storage_path('logs')`
-- `LOG_LOCATION=some/path/` will use that path to store logs. e.g. `./custom_logs`
-- `LOG_LOCATION=` will default to the packages' own location of `fryiee/custom_log/logs`
+- `LOG_PATH=some/path/` will use that path to store logs. e.g. `./custom_logs`
+- `LOG_PATH=` will default to the packages' own location of `fryiee/custom_log/logs`
+
+Adding `LOG_DATE=true` to your .env will allow your logs to be dated in the same way as core Laravel logs
+ (Y-m-d format).
 
 ## Usage
 ```
